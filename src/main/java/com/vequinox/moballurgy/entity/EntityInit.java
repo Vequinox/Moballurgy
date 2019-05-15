@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class EntityInit {
     public static void regsiterEntities(){
-        registerEntity("frost_zombie", EntityFrostZombie.class, Reference.ENTITY_FROST_ZOMBIE, 50, 3103394, 437752);
+        registerEntity("frost_zombie", EntityFrostbite.class, Reference.ENTITY_FROST_ZOMBIE, 50, 3103394, 437752);
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2){

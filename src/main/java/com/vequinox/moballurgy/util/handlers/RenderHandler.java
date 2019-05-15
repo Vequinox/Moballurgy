@@ -1,7 +1,7 @@
 package com.vequinox.moballurgy.util.handlers;
 
-import com.vequinox.moballurgy.entity.EntityFrostZombie;
-import com.vequinox.moballurgy.entity.render.RenderFrostZombie;
+import com.vequinox.moballurgy.entity.EntityFrostbite;
+import com.vequinox.moballurgy.entity.render.RenderFrostbite;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -10,10 +10,10 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public class RenderHandler {
 
     public static void registerEntityRenders(){
-        RenderingRegistry.registerEntityRenderingHandler(EntityFrostZombie.class, new IRenderFactory<EntityFrostZombie>() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityFrostbite.class, new IRenderFactory<EntityFrostbite>() {
             @Override
-            public Render<? super EntityFrostZombie> createRenderFor(RenderManager manager) {
-                return new RenderFrostZombie(manager);
+            public Render<? super EntityFrostbite> createRenderFor(RenderManager manager) {
+                return new RenderFrostbite(manager);
             }
         });
     }
