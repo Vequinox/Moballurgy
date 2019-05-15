@@ -28,5 +28,6 @@ public class RegistryHandler {
 
     public static void initRegistries(FMLInitializationEvent event) {
         EntityInit.regsiterEntities();
+        SpawnHandler.addAndRemoveSpawns();
     }
 }
