@@ -1,6 +1,5 @@
 package com.vequinox.moballurgy;
 
-import com.vequinox.moballurgy.entities.FrostbiteEntity;
 import com.vequinox.moballurgy.init.MoballurgyEntities;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
@@ -22,9 +21,9 @@ public class MoballurgyRegistries {
 
     @SubscribeEvent
     public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event){
-        event.getRegistry().registerAll(
-                MoballurgyEntities.FROSTBITE_ENTITY
-        );
+        for (EntityType entityType : MoballurgyEntities.ENTITIES) {
+            event.getRegistry().register(entityType);
+        }
 
         EntitySpawnPlacementRegistry.register(MoballurgyEntities.FROSTBITE_ENTITY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
     }
