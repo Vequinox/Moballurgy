@@ -1,20 +1,33 @@
 package com.vequinox.moballurgy.init;
 
+import com.google.common.collect.Lists;
 import com.vequinox.moballurgy.MoballurgyMain;
 import com.vequinox.moballurgy.MoballurgyRegistries;
 import com.vequinox.moballurgy.entities.FrostbiteEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.RegistryEvent;
 
-public class MoballurgyEntities {
+import java.util.List;
 
-    public static EntityType<?> FROSTBITE_ENTITY = EntityType.Builder.create(FrostbiteEntity::new, EntityClassification.MONSTER).build(MoballurgyMain.MOD_ID + ":frostbite_entity").setRegistryName(MoballurgyRegistries.location("frostbite_entity"));
+public class MoballurgyEntities {
+    public static List<EntityType> ENTITIES = Lists.newArrayList();
+    public static EntityType<FrostbiteEntity> FROSTBITE_ENTITY = register("frostbite_entity", EntityType.Builder.create(FrostbiteEntity::new, EntityClassification.MONSTER));
+
+    private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
+        ResourceLocation location = new ResourceLocation(MoballurgyMain.MOD_ID, name);
+        EntityType<T> entityType = builder.build(location.toString());
+        entityType.setRegistryName(location);
+        ENTITIES.add(entityType);
+        return entityType;
+    }
 
     public static void registerEntitySpawnEggs(final RegistryEvent.Register<Item> event){
         event.getRegistry().registerAll(
@@ -23,7 +36,7 @@ public class MoballurgyEntities {
     }
 
     public static Item registerEntitySpawnEgg(EntityType<?> type, int mainColor, int dotColor, String name){
-        SpawnEggItem egg = new SpawnEggItem(type, mainColor, dotColor, new Item.Properties().group(ItemGroup.MISC));
+        SpawnEggItem egg = new SpawnEggItem(type, mainColor, dotColor, new Item.Properties().group(MoballurgyMain.GROUP));
         egg.setRegistryName(MoballurgyRegistries.location(name));
         return egg;
     }

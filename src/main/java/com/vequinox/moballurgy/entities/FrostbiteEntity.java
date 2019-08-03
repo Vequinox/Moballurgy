@@ -9,6 +9,6 @@ public class FrostbiteEntity extends ZombieEntity {
 
     @SuppressWarnings("unchecked")
     public FrostbiteEntity(EntityType<? extends ZombieEntity> type, World worldIn) {
-        super((EntityType<? extends ZombieEntity>) MoballurgyEntities.FROSTBITE_ENTITY, worldIn);
+        super(MoballurgyEntities.FROSTBITE_ENTITY, worldIn);
     }
 }
