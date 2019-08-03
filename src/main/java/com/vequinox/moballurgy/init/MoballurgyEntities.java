@@ -36,7 +36,7 @@ public class MoballurgyEntities {
     }
 
     public static Item registerEntitySpawnEgg(EntityType<?> type, int mainColor, int dotColor, String name){
-        SpawnEggItem egg = new SpawnEggItem(type, mainColor, dotColor, new Item.Properties().group(ItemGroup.MISC));
+        SpawnEggItem egg = new SpawnEggItem(type, mainColor, dotColor, new Item.Properties().group(MoballurgyMain.GROUP));
         egg.setRegistryName(MoballurgyRegistries.location(name));
         return egg;
     }

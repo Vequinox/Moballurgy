@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 public class MoballurgyMain {
     public static final String MOD_ID = "moballurgy";
     private static final Logger LOGGER = LogManager.getLogger(MOD_ID);
-    public static final ItemGroup MOBALLURGY = new ItemGroup(MOD_ID) {
+    public static final ItemGroup GROUP = new ItemGroup(MOD_ID) {
         @Override
         @Nonnull
         public ItemStack createIcon() {
